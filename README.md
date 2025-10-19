@@ -1,9 +1,6 @@
 androidbinary
 =====
 
-[![Build Status](https://github.com/shogo82148/androidbinary/workflows/Test/badge.svg)](https://github.com/shogo82148/androidbinary/actions)
-[![GoDoc](https://godoc.org/github.com/shogo82148/androidbinary?status.svg)](https://godoc.org/github.com/shogo82148/androidbinary)
-
 Android binary file parser
 
 ## High Level API
@@ -11,12 +8,6 @@ Android binary file parser
 ### Parse APK files
 
 ``` go
-package main
-
-import (
-	"github.com/shogo82148/androidbinary/apk"
-)
-
 func main() {
 	pkg, _ := apk.OpenFile("your-android-app.apk")
 	defer pkg.Close()
@@ -36,15 +27,6 @@ func main() {
 ### Parse XML binary
 
 ``` go
-package main
-
-import (
-	"encoding/xml"
-
-	"github.com/shogo82148/androidbinary"
-	"github.com/shogo82148/androidbinary/apk"
-)
-
 func main() {
 	f, _ := os.Open("AndroidManifest.xml")
 	xml, _ := androidbinary.NewXMLFile(f)
@@ -60,13 +42,6 @@ func main() {
 ### Parse Resource files
 
 ``` go
-package main
-
-import (
-	"fmt"
-	"github.com/shogo82148/androidbinary"
-)
-
 func main() {
 	f, _ := os.Open("resources.arsc")
 	rsc, _ := androidbinary.NewTableFile(f)
@@ -74,7 +49,3 @@ func main() {
 	fmt.Println(resource)
 }
 ```
-
-## License
-
-This software is released under the MIT License, see LICENSE.
